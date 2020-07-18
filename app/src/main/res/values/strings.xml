@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FirstSample</string>
+    <string name="hello_display">Hello display</string>
+    <string name="title_grid">Grid</string>
+    <string name="title_list">List</string>
+    <string name="action_setting">Settings</string>
+</resources>
