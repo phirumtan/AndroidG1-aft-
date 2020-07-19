@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatTextView mText;
 
     private AppCompatButton mBtnIntent;
+    private AppCompatButton mBtnOpenUIKit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         mText = findViewById(R.id.text);
 
         mBtnIntent = findViewById(R.id.btn_implicit_intent);
+
+        mBtnOpenUIKit = findViewById(R.id.btn_open_ui_kit);
 
 
         mBtnSend.setOnClickListener(new View.OnClickListener() {
@@ -87,6 +90,32 @@ public class MainActivity extends AppCompatActivity {
                         .startChooser();
 
 
+            }
+        });
+
+        mBtnOpenUIKit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), UIKitActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        AppCompatButton btnOpenUIKit1 = findViewById(R.id.btn_open_ui_kit_1);
+
+        btnOpenUIKit1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), SpinnerSwitchDateTimeActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        AppCompatButton btn_show_date = findViewById(R.id.btn_show_date);
+        btn_show_date.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new DatePickerFragment().show(getSupportFragmentManager(), "DatePicker");
             }
         });
     }

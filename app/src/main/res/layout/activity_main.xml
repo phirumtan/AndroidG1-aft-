@@ -81,19 +81,43 @@
             android:layout_height="wrap_content"/>-->
 
         <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Input your password"
             app:counterEnabled="true"
             app:counterMaxLength="10"
-            app:passwordToggleEnabled="true"
-            android:hint="Input your password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            app:passwordToggleEnabled="true">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:inputType="numberPassword"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:inputType="numberPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_open_ui_kit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_secondary"
+            android:text="Open UIKIt"
+            android:textColor="#ffcc0000" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_open_ui_kit_1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/design_default_color_secondary"
+            android:text="Open Spinner Switch Date and Time UI KIt"
+            android:textColor="#FFFFFFFF" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_show_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="10dp"
+            android:text="Show Date" />
 
     </LinearLayout>
 
