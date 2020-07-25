@@ -17,6 +17,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ShareCompat;
 import androidx.core.content.ContextCompat;
 
+import com.gsmarena.firstsample.dialog.DatePickerFragment;
+import com.gsmarena.firstsample.dialog.TimePickerFragment;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName(); //"MainActivity"
@@ -118,6 +121,23 @@ public class MainActivity extends AppCompatActivity {
                 new DatePickerFragment().show(getSupportFragmentManager(), "DatePicker");
             }
         });
+
+        AppCompatButton btn_show_time = findViewById(R.id.btn_show_time);
+        btn_show_time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new TimePickerFragment().show(getSupportFragmentManager(), "TimePicker");
+            }
+        });
+
+        AppCompatButton btn_show_rcv = findViewById(R.id.btn_show_rcv);
+        btn_show_rcv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), RecyclerviewActivity.class));
+            }
+        });
+
     }
 
     @Override

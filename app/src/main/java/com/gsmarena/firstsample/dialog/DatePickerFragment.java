@@ -1,8 +1,9 @@
-package com.gsmarena.firstsample;
+package com.gsmarena.firstsample.dialog;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.DatePicker;
 
 import androidx.annotation.NonNull;
@@ -12,6 +13,7 @@ import androidx.fragment.app.DialogFragment;
 import java.util.Calendar;
 
 public class DatePickerFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+    private static final String TAG = "DatePickerFragment";
 
     @NonNull
     @Override
@@ -27,6 +29,6 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
 
     @Override
     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
+        Log.d(TAG, "year " + year + " m = " + month + " day " + dayOfMonth);
     }
 }

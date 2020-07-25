@@ -1,17 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <include
         android:id="@+id/app_bar"
         layout="@layout/layout_appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 
     <!--<android.support.v7.widget.AppCompatEditText-->
     <androidx.appcompat.widget.AppCompatEditText
@@ -57,69 +54,91 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_implicit_intent" />
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:gravity="top|center"
-        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/appCompatTextView">
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="150dp"
-            android:layout_height="200dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/piseth"
-            android:tint="@color/colorAccent"
-            android:tintMode="multiply" />
-
-        <!--<androidx.appcompat.widget.AppCompatEditText
-            android:text="show ui edittext"
-            android:layout_marginTop="10dp"
-            android:inputType="textPassword"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>-->
+            android:layout_height="0dp"
+            android:gravity="top|center"
+            android:orientation="vertical">
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Input your password"
-            app:counterEnabled="true"
-            app:counterMaxLength="10"
-            app:passwordToggleEnabled="true">
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="400dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/piseth"
+                android:tint="@color/colorAccent"
+                android:tintMode="multiply" />
 
-            <com.google.android.material.textfield.TextInputEditText
+            <!--<androidx.appcompat.widget.AppCompatEditText
+                android:text="show ui edittext"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>-->
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
+                android:hint="Input your password"
+                app:counterEnabled="true"
+                app:counterMaxLength="10"
+                app:passwordToggleEnabled="true">
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_open_ui_kit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/design_default_color_secondary"
-            android:text="Open UIKIt"
-            android:textColor="#ffcc0000" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_open_ui_kit_1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/design_default_color_secondary"
-            android:text="Open Spinner Switch Date and Time UI KIt"
-            android:textColor="#FFFFFFFF" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_open_ui_kit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/design_default_color_secondary"
+                android:text="Open UIKIt"
+                android:textColor="#ffcc0000" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_show_date"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="10dp"
-            android:text="Show Date" />
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_open_ui_kit_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/design_default_color_secondary"
+                android:text="Open Spinner Switch Date and Time UI KIt"
+                android:textColor="#FFFFFFFF" />
 
-    </LinearLayout>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show Date" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show Time" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_rcv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show RecycleView" />
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
