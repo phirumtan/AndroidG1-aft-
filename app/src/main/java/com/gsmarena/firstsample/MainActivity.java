@@ -138,6 +138,38 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AppCompatButton btn_show_pager = findViewById(R.id.btn_show_pager);
+        btn_show_pager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), ViewPagerActivity.class));
+            }
+        });
+
+        AppCompatButton btn_show_webview = findViewById(R.id.btn_show_webview);
+        btn_show_webview.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), WebviewActivity.class));
+            }
+        });
+
+        AppCompatButton btn_show_asynctask = findViewById(R.id.btn_show_asynctask);
+        btn_show_asynctask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), AsyncTaskActivity.class));
+            }
+        });
+
+        AppCompatButton btn_show_asynctask_loader = findViewById(R.id.btn_show_asynctask_loader);
+        btn_show_asynctask_loader.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), AsyncTaskLoaderActivity.class));
+            }
+        });
+
     }
 
     @Override

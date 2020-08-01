@@ -42,6 +42,10 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.MyViewHolder> 
         return mListItem.size();
     }
 
+    public void insertItem(String item) {
+        this.mListItem.add(item);
+    }
+
     static class MyViewHolder extends RecyclerView.ViewHolder {
 
         private AppCompatImageView mImgIcon;

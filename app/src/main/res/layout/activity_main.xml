@@ -68,7 +68,7 @@
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:layout_width="wrap_content"
-                android:layout_height="400dp"
+                android:layout_height="150dp"
                 android:scaleType="fitCenter"
                 android:src="@mipmap/piseth"
                 android:tint="@color/colorAccent"
@@ -137,6 +137,42 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
                 android:text="Show RecycleView" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show ViewPager" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_webview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show Webview" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_asynctask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show AsyncTask" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_asynctask_loader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show AsyncTaskLoader" />
 
         </LinearLayout>
     </ScrollView>
