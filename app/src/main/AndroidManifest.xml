@@ -13,7 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".AsyncTaskLoaderActivity"></activity>
+        <activity
+            android:name=".BroadcastActivity"
+            android:enabled="true"
+            android:exported="true"/>
+        <activity android:name=".Retrofit2Activity" />
+        <activity android:name=".AsyncTaskLoaderActivity" />
         <activity android:name=".AsyncTaskActivity" />
         <activity android:name=".WebviewActivity" />
         <activity android:name=".ViewPagerActivity" />
@@ -31,6 +36,16 @@
             </intent-filter>
         </activity>
         <activity android:name=".DisplayActivity" />
+
+
+        <receiver android:name=".receiver.CustomReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.intent.action.BATTERY_LOW" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

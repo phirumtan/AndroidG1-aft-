@@ -170,6 +170,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AppCompatButton btn_show_retrofit2 = findViewById(R.id.btn_show_retrofit2);
+        btn_show_retrofit2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), Retrofit2Activity.class));
+            }
+        });
+
+        AppCompatButton btn_show_broadcast = findViewById(R.id.btn_show_broadcast);
+        btn_show_broadcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), BroadcastActivity.class));
+            }
+        });
+
     }
 
     @Override

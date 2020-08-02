@@ -4,6 +4,9 @@
     <string name="title_grid">Grid</string>
     <string name="title_list">List</string>
     <string name="action_setting">Settings</string>
+    <string name="power_connected">The power is connected.</string>
+    <string name="power_disconnected">The power is disconnected!!!</string>
+    <string name="custom_broadcast_toast">In custom broadcast mode.</string>
     <string-array name="drop_list">
         <item>Item 1</item>
         <item>Item 2</item>
