@@ -11,6 +11,8 @@ import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
 import com.gsmarena.firstsample.receiver.CustomReceiver;
@@ -37,6 +39,16 @@ public class BroadcastActivity extends AppCompatActivity {
         mPackageManager = getPackageManager();
         //Use LocalBroadcastManager so that the broadcast is not received by other applications.
         LocalBroadcastManager.getInstance(this).registerReceiver(mReceiver, new IntentFilter(CustomReceiver.ACTION_CUSTOM_BROADCAST));
+
+        final NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "CHANNEL_ID")
+                .setSmallIcon(R.drawable.ic_grid)
+                .setContentTitle("textTitle")
+                .setContentText("textContent")
+                .setPriority(NotificationCompat.PRIORITY_HIGH);
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+
+// notificationId is a unique int for each notification that you must define
+        notificationManager.notify(23, builder.build());
 
         //onClick method for the button
         mBtnSendCustom.setOnClickListener(new View.OnClickListener() {

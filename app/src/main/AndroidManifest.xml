@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.gsmarena.firstsample">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.DEVICE_POWER"
+        tools:ignore="ProtectedPermissions" />
 
     <application
         android:allowBackup="true"
@@ -13,10 +17,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".RoomDbActivity"></activity>
+        <activity android:name=".SharePrefActivity" />
+        <activity android:name=".NotificationActivity" />
         <activity
             android:name=".BroadcastActivity"
             android:enabled="true"
-            android:exported="true"/>
+            android:exported="true" />
         <activity android:name=".Retrofit2Activity" />
         <activity android:name=".AsyncTaskLoaderActivity" />
         <activity android:name=".AsyncTaskActivity" />
@@ -36,7 +43,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".DisplayActivity" />
-
 
         <receiver android:name=".receiver.CustomReceiver">
             <intent-filter>

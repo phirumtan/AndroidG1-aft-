@@ -192,6 +192,34 @@
                 android:layout_marginEnd="10dp"
                 android:text="Show Broadcast" />
 
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_notification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show Notification" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_share_pref"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show Share Pref" />
+
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_show_room_db"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:text="Show Room DB" />
+
         </LinearLayout>
     </ScrollView>
 

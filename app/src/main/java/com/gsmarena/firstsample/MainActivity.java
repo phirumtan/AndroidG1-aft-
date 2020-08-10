@@ -186,6 +186,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+        AppCompatButton btn_show_notification = findViewById(R.id.btn_show_notification);
+        btn_show_notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), NotificationActivity.class));
+            }
+        });
+
+        AppCompatButton btn_show_share_pref = findViewById(R.id.btn_show_share_pref);
+        btn_show_share_pref.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), SharePrefActivity.class));
+            }
+        });
+
+        AppCompatButton btn_show_room_db = findViewById(R.id.btn_show_room_db);
+        btn_show_room_db.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), RoomDbActivity.class));
+            }
+        });
+
     }
 
     @Override
