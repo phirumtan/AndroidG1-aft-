@@ -28,6 +28,7 @@ public class RoomDbActivity extends AppCompatActivity {
         Button btnInitDb = findViewById(R.id.btn_init_db);
         Button btnInsert = findViewById(R.id.btn_insert);
         Button btnGetData = findViewById(R.id.btn_get_data);
+        Button btnUpdate = findViewById(R.id.btn_update);
 
 
         btnInitDb.setOnClickListener(new View.OnClickListener() {
@@ -67,6 +68,20 @@ public class RoomDbActivity extends AppCompatActivity {
                     }
                 }).start();
 
+            }
+        });
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        User user = new User("phirum", "tanUpdate");
+
+                        mUserDatabase.mUserDao().update(user);
+                    }
+                }).start();
             }
         });
 

@@ -211,6 +211,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AppCompatButton btn_show_data_binding = findViewById(R.id.btn_show_data_binding);
+        btn_show_data_binding.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), DataBindingActivity.class));
+            }
+        });
+
     }
 
     @Override
