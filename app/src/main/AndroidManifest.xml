@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RoomDbActivity"></activity>
+        <activity android:name=".DataBindingActivity"></activity>
+        <activity android:name=".RoomDbActivity" />
         <activity android:name=".SharePrefActivity" />
         <activity android:name=".NotificationActivity" />
         <activity
