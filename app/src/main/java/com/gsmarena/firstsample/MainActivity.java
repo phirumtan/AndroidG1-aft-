@@ -215,7 +215,7 @@ public class MainActivity extends AppCompatActivity {
         btn_show_data_binding.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(v.getContext(), DataBindingActivity.class));
+                startActivity(new Intent(v.getContext(), ActivityBinding.class));
             }
         });
 

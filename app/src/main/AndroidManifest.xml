@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ViewModelActivity"></activity>
+        <activity android:name=".ActivityBinding"></activity>
+        <activity android:name=".ViewModelActivity" />
         <activity android:name=".DataBindingActivity" />
         <activity android:name=".RoomDbActivity" />
         <activity android:name=".SharePrefActivity" />
