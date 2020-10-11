@@ -227,6 +227,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AppCompatButton btn_show_view_model = findViewById(R.id.btn_show_view_model);
+        btn_show_view_model.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), ViewModelActivity.class));
+            }
+        });
+
     }
 
     @Override
