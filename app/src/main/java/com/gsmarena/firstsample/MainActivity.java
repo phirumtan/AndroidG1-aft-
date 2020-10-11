@@ -219,6 +219,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AppCompatButton btn_show_live_data = findViewById(R.id.btn_show_live_data);
+        btn_show_live_data.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), LiveDataActivity.class));
+            }
+        });
+
     }
 
     @Override
