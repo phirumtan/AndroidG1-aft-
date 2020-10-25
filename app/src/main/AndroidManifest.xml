@@ -17,7 +17,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".LiveDataActivity"></activity>
+        <!--<activity android:name=".ch13.Chapter13Activity"></activity>-->
+        <activity android:name=".LiveDataActivity" />
         <activity android:name=".ActivityBinding" />
         <activity android:name=".ViewModelActivity" />
         <activity android:name=".DataBindingActivity" />
@@ -37,7 +38,7 @@
         <activity android:name=".SpinnerSwitchDateTimeActivity" />
         <activity android:name=".UIKitActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".ch13.Chapter13Activity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

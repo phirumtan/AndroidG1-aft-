@@ -10,6 +10,7 @@ public class RegisterItem implements Serializable {
     @SerializedName("email")
     @Expose
     private String email;
+
     @SerializedName("password")
     @Expose
     private String password;

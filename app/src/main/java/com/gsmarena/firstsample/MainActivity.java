@@ -17,6 +17,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ShareCompat;
 import androidx.core.content.ContextCompat;
 
+import com.gsmarena.firstsample.ch13.Chapter13Activity;
 import com.gsmarena.firstsample.dialog.DatePickerFragment;
 import com.gsmarena.firstsample.dialog.TimePickerFragment;
 
@@ -232,6 +233,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(v.getContext(), ViewModelActivity.class));
+            }
+        });
+
+        AppCompatButton btn_show_ch13 = findViewById(R.id.btn_show_ch13);
+        btn_show_ch13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(v.getContext(), Chapter13Activity.class));
             }
         });
 
