@@ -17,7 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <!--<activity android:name=".ch13.Chapter13Activity"></activity>-->
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".LiveDataActivity" />
         <activity android:name=".ActivityBinding" />
         <activity android:name=".ViewModelActivity" />

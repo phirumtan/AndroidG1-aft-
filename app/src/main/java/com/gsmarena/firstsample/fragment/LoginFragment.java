@@ -1,8 +1,9 @@
 package com.gsmarena.firstsample.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.TextWatcher;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,8 @@ import androidx.fragment.app.FragmentManager;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.gsmarena.firstsample.MainActivity;
 import com.gsmarena.firstsample.R;
 import com.gsmarena.firstsample.databinding.FragmentLoginBinding;
 import com.gsmarena.firstsample.models.LoginViewModel;
@@ -62,7 +65,7 @@ public class LoginFragment extends Fragment {
 
         mLoginViewModel = new ViewModelProvider(getActivity()).get(LoginViewModel.class);
 
-        mViewBinding.edtUsername.addTextChangedListener(new TextWatcher() {
+        /*mViewBinding.edtUsername.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -80,7 +83,7 @@ public class LoginFragment extends Fragment {
             public void afterTextChanged(Editable s) {
 
             }
-        });
+        });*/
 
         mViewBinding.btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +92,14 @@ public class LoginFragment extends Fragment {
                 Editable edtPassword = mViewBinding.edtPassword.getText();
                 if (edtUsername != null && edtPassword != null) {
                     if (edtUsername.length() > 0 && edtPassword.length() > 0) {
+
+                        if (edtUsername.length() > 30) {
+                            mViewBinding.txtInputUsername.setError("Error...");
+                            return;
+                        }
+
+                        mViewBinding.txtInputUsername.setError(null);
+
                         mViewBinding.viewLoading.setVisibility(View.VISIBLE);
 
                         RegisterItem item = new RegisterItem();
@@ -100,8 +111,14 @@ public class LoginFragment extends Fragment {
                             public void onResponse(Call<Object> call, Response<Object> response) {
                                 mViewBinding.viewLoading.setVisibility(View.GONE);
                                 if (response.isSuccessful()) {
-                                    Toast.makeText(v.getContext(), mGson.toJson(response.body()), Toast.LENGTH_SHORT).show();
-                                    Log.d(TAG, "Handle login response from server " + mGson.toJson(response.body()));
+                                    JsonObject tokenObj = (JsonObject) mGson.toJsonTree(response.body());
+                                    String token = tokenObj.get("token").getAsString();
+                                    if (!TextUtils.isEmpty(token)) {
+                                        Toast.makeText(v.getContext(), "Login successful!!!!", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(v.getContext(), MainActivity.class));
+                                        Log.d(TAG, "Handle login response from server " + mGson.toJson(response.body()));
+                                    }
+
                                 } else {
                                     Toast.makeText(v.getContext(), "error : " + mGson.toJson(response.errorBody()), Toast.LENGTH_SHORT).show();
                                     Log.e(TAG, "error response!!!!");
