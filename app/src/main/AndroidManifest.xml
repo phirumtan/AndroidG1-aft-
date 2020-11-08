@@ -18,8 +18,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".MainActivity"
+            android:name=".HomeScreenActivity"
+            android:label="@string/title_activity_home_screen"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".LiveDataActivity" />
         <activity android:name=".ActivityBinding" />
         <activity android:name=".ViewModelActivity" />

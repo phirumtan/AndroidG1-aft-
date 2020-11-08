@@ -19,7 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.gsmarena.firstsample.MainActivity;
+import com.gsmarena.firstsample.HomeScreenActivity;
 import com.gsmarena.firstsample.R;
 import com.gsmarena.firstsample.databinding.FragmentLoginBinding;
 import com.gsmarena.firstsample.models.LoginViewModel;
@@ -115,7 +115,7 @@ public class LoginFragment extends Fragment {
                                     String token = tokenObj.get("token").getAsString();
                                     if (!TextUtils.isEmpty(token)) {
                                         Toast.makeText(v.getContext(), "Login successful!!!!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(v.getContext(), MainActivity.class));
+                                        startActivity(new Intent(v.getContext(), HomeScreenActivity.class));
                                         Log.d(TAG, "Handle login response from server " + mGson.toJson(response.body()));
                                     }
 
