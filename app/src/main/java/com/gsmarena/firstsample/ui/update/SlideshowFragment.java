@@ -1,4 +1,4 @@
-package com.gsmarena.firstsample.ui.slideshow;
+package com.gsmarena.firstsample.ui.update;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

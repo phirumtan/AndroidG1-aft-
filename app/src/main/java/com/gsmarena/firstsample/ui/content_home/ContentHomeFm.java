@@ -9,23 +9,21 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.Gson;
 import com.gsmarena.firstsample.R;
 import com.gsmarena.firstsample.callback.EndlessRecyclerViewScrollListener;
-import com.gsmarena.firstsample.retrofit2.APIClient;
-import com.gsmarena.firstsample.retrofit2.APIUserInterface;
 import com.gsmarena.firstsample.retrofit2.item.Datum;
-import com.gsmarena.firstsample.retrofit2.item.UserItem;
+import com.gsmarena.firstsample.ui.UsersViewModel;
 import com.gsmarena.firstsample.ui.adapter.ContentHomeAdapter;
 
 import java.util.LinkedList;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import java.util.List;
 
 public class ContentHomeFm extends Fragment {
 
@@ -37,8 +35,10 @@ public class ContentHomeFm extends Fragment {
     private EndlessRecyclerViewScrollListener mListener;
     private LinearLayoutManager mLinearLayoutManager;
 
-    private APIUserInterface mApiUserInterface;
+    //private APIUserInterface mApiUserInterface;
     private Gson mGson;
+
+    private UsersViewModel mUsersViewModel;
 
 
     public ContentHomeFm() {
@@ -57,6 +57,9 @@ public class ContentHomeFm extends Fragment {
         if (getActivity() == null)
             return;
 
+        mUsersViewModel = new ViewModelProvider(getActivity()).get(UsersViewModel.class);
+        mUsersViewModel.getUserByPage("1");
+
         mLinkedList = new LinkedList<>();
 
         mLinearLayoutManager = new LinearLayoutManager(getContext());
@@ -66,38 +69,28 @@ public class ContentHomeFm extends Fragment {
         mRcv.setAdapter(adapter);
         mRcv.setLayoutManager(mLinearLayoutManager);
 
-        mGson = new Gson();
-        mApiUserInterface = APIClient.getClient().create(APIUserInterface.class);
+        mRcv.addItemDecoration(new DividerItemDecoration(view.getContext(), DividerItemDecoration.VERTICAL));
 
-        Call<UserItem> userItemCall = mApiUserInterface.doGetUserList("1");
-        userItemCall.enqueue(new Callback<UserItem>() {
+        mGson = new Gson();
+
+        mUsersViewModel.getUserRecords().observe(getActivity(), new Observer<List<Datum>>() {
             @Override
-            public void onResponse(Call<UserItem> call, Response<UserItem> response) {
-                for (Datum item : response.body().getData()) {
+            public void onChanged(List<Datum> data) {
+                for (Datum item : data) {
                     adapter.insertItem(item);
                 }
-                Log.d(TAG, mGson.toJson(response.body()));
-            }
-
-            @Override
-            public void onFailure(Call<UserItem> call, Throwable t) {
-
-                Log.e(TAG, "error hey " + t.getMessage());
+                Log.d(TAG, mGson.toJson(data));
             }
         });
 
-        /*mListener = new EndlessRecyclerViewScrollListener(mLinearLayoutManager) {
+        mListener = new EndlessRecyclerViewScrollListener(mLinearLayoutManager) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                int currentSize = adapter.getItemCount();
-                for (int i = 0; i < 10; i++) {
-                    adapter.insertItem("item " + (adapter.getItemCount() + i));
-                }
-                adapter.notifyItemRangeChanged(currentSize, adapter.getItemCount() - 1);
+                mUsersViewModel.getUserByPage(String.valueOf(page + 1));
             }
-        };*/
+        };
 
-        //mRcv.addOnScrollListener(mListener);
+        mRcv.addOnScrollListener(mListener);
     }
 
     private LinkedList<String> createList(int amount) {

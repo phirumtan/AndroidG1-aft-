@@ -41,7 +41,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
+                R.id.nav_insert, R.id.nav_delete, R.id.nav_update)
                 .setDrawerLayout(drawer)
                 .build();
 
@@ -51,7 +51,7 @@ public class HomeScreenActivity extends AppCompatActivity {
         toggle.syncState();
 
         FragmentManager manager = getSupportFragmentManager();
-        manager.beginTransaction().add(R.id.host_fragment, new ContentHomeFm(), ContentHomeFm.TAG).commitAllowingStateLoss();
+        manager.beginTransaction().replace(R.id.host_fragment, new ContentHomeFm(), ContentHomeFm.TAG).commitAllowingStateLoss();
 
 
     }
