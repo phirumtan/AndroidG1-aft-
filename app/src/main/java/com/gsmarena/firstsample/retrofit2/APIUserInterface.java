@@ -3,6 +3,7 @@ package com.gsmarena.firstsample.retrofit2;
 import com.gsmarena.firstsample.retrofit2.item.RegisterItem;
 import com.gsmarena.firstsample.retrofit2.item.ResponseRegister;
 import com.gsmarena.firstsample.retrofit2.item.UserItem;
+import com.gsmarena.firstsample.ui.model.ResponseCreateUser;
 
 import retrofit2.Call;
 import retrofit2.http.Body;
@@ -23,4 +24,8 @@ public interface APIUserInterface {
 
     @GET("/api/users?")
     Call<UserItem> doGetUserList(@Query("page") String page);
+
+    @FormUrlEncoded
+    @POST("/api/user")
+    Call<ResponseCreateUser> doCreate(@Field("name") String name, @Field("job") String job);
 }

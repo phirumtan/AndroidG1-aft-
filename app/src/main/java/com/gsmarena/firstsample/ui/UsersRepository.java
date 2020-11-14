@@ -9,6 +9,7 @@ import com.gsmarena.firstsample.retrofit2.APIClient;
 import com.gsmarena.firstsample.retrofit2.APIUserInterface;
 import com.gsmarena.firstsample.retrofit2.item.Datum;
 import com.gsmarena.firstsample.retrofit2.item.UserItem;
+import com.gsmarena.firstsample.ui.model.ResponseCreateUser;
 
 import java.util.List;
 
@@ -56,4 +57,25 @@ public class UsersRepository {
 
         return liveData;
     }
+
+    public MutableLiveData<ResponseCreateUser> createUserToServer(String name, String job) {
+        final MutableLiveData<ResponseCreateUser> liveData = new MutableLiveData<>();
+        Call<ResponseCreateUser> userItemCall = mApiUserInterface.doCreate(name, job);
+        userItemCall.enqueue(new Callback<ResponseCreateUser>() {
+            @Override
+            public void onResponse(Call<ResponseCreateUser> call, Response<ResponseCreateUser> response) {
+                if (response.isSuccessful()) {
+                    liveData.setValue(response.body());
+                } else
+                    Log.e(TAG, "response not success " + (response.errorBody() != null ? response.errorBody().toString() : "error with response from server"));
+            }
+
+            @Override
+            public void onFailure(Call<ResponseCreateUser> call, Throwable t) {
+                Log.e(TAG, "response not success " + (t.getMessage()));
+            }
+        });
+        return liveData;
+    }
+
 }

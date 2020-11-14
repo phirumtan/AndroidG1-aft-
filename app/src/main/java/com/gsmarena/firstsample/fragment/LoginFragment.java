@@ -19,7 +19,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
-import com.gsmarena.firstsample.HomeScreenActivity;
+import com.gsmarena.firstsample.ui.activities.HomeScreenActivity;
 import com.gsmarena.firstsample.R;
 import com.gsmarena.firstsample.databinding.FragmentLoginBinding;
 import com.gsmarena.firstsample.models.LoginViewModel;
