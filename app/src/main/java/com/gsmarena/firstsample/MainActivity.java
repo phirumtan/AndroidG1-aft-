@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName(); //"MainActivity"
 
-
     public static final String EXT_KEY_MSG = "ext_key_msg";
     private static final String LOG_TAG = "activityLife";
 
@@ -48,11 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar.setTitleTextColor(ContextCompat.getColor(this, android.R.color.white));
         setSupportActionBar(toolbar);
-
-        /*ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null)
-            actionBar.setDisplayShowTitleEnabled(true);*/
-
 
         mEdtMsg = findViewById(R.id.edt_enter_msg);
 
